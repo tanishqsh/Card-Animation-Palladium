@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+	background-color: black;
+}
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+	will-change: auto;
+	/* font-variant-ligatures: none; */
+}
+
+/* Animating from transform origin */
+
+.hovering-cards:hover {
+	/* transform: rotateX(0); */
+	animation-play-state: paused;
+	animation: scroll-cards 100s infinite;
+}
+
+.hovering-cards {
+	cursor: pointer;
+	/* transform: rotateX(-50deg) rotateY(0deg) rotateZ(-30deg); */
+	transform-origin: 15% 200%;
+	animation: scroll-cards 100s infinite;
+}
+
+/**
+Write a keyframe rule to animate the opacity of the element from 0 to 1
+*/
+@keyframes scroll-cards {
+	0% {
+		transform: rotateX(-50deg) rotateY(0deg) rotateZ(-30deg) translateX(0%);
+	}
+	100% {
+		transform: rotateX(-50deg) rotateY(0deg) rotateZ(-30deg) translateX(-50%);
+	}
+}
